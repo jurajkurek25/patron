@@ -3,7 +3,7 @@ uploads/*
 !uploads/.gitkeep
 
 # Config files with sensitive data
-config/config.php
+# config/config.php (temporarily enabled for deployment)
 
 # IDE files
 .idea/

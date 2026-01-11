@@ -1,0 +1,39 @@
+<?php
+// Configuration file for Patron Platform
+
+// Database Configuration
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'patron_platform');
+
+// Stripe Configuration
+define('STRIPE_SECRET_KEY', 'sk_test_YOUR_SECRET_KEY_HERE');
+define('STRIPE_PUBLIC_KEY', 'pk_test_YOUR_PUBLIC_KEY_HERE');
+define('STRIPE_WEBHOOK_SECRET', 'whsec_YOUR_WEBHOOK_SECRET_HERE');
+
+// Site Configuration
+define('SITE_URL', 'https://patron.jurajkurek.com');
+define('SITE_NAME', 'Patron Platform');
+define('UPLOAD_DIR', __DIR__ . '/../uploads/');
+define('MAX_FILE_SIZE', 500 * 1024 * 1024); // 500MB
+
+// Session Configuration - PHP 8.5 compatible
+if (session_status() === PHP_SESSION_NONE) {
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => '',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    ]);
+    session_start();
+}
+
+// Timezone
+date_default_timezone_set('Europe/Bratislava');
+
+// Error reporting (disable in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
