@@ -20,13 +20,16 @@ define('SITE_NAME', 'Patron Platform');
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 define('MAX_FILE_SIZE', 500 * 1024 * 1024); // 500MB
 
-// Session Configuration
-ini_set('session.cookie_httponly', 1);
-ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_samesite', 'Strict');
-
-// Start session if not already started
+// Session Configuration - PHP 8.5 compatible
 if (session_status() === PHP_SESSION_NONE) {
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => '',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    ]);
     session_start();
 }
 
