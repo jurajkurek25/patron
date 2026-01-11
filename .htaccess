@@ -12,11 +12,13 @@ Options -Indexes
 # Set default charset
 AddDefaultCharset UTF-8
 
-# Increase upload limits (adjust as needed)
-php_value upload_max_filesize 500M
-php_value post_max_size 500M
-php_value max_execution_time 300
-php_value max_input_time 300
+# Increase upload limits (use php.ini or .user.ini instead)
+# If you need to set these values, create a .user.ini file in the root directory
+# with these lines:
+# upload_max_filesize = 500M
+# post_max_size = 500M
+# max_execution_time = 300
+# max_input_time = 300
 
 # Compress text files
 <IfModule mod_deflate.c>
